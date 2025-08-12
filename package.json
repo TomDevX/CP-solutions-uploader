@@ -26,5 +26,19 @@
     "eslint-config-next": "15.4.6",
     "tailwindcss": "^4",
     "typescript": "^5"
-  }
+  },
+  "description": "**CP Solutions Uploader** is a repository for storing, sharing, and uploading programming problem solutions from platforms like Codeforces, Leetcode, VNOI, and more.",
+  "main": "firebase.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TomDevX/CP-solutions-uploader.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/TomDevX/CP-solutions-uploader/issues"
+  },
+  "homepage": "https://github.com/TomDevX/CP-solutions-uploader#readme"
 }
