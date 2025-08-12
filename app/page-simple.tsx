@@ -1,0 +1,105 @@
+'use client'
+
+import { useState } from 'react'
+import TestButtons from '@/components/TestButtons'
+
+export default function SimplePage() {
+  const [viewMode, setViewMode] = useState<'public' | 'private'>('public')
+  const [searchQuery, setSearchQuery] = useState('')
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+      {/* Simple Header */}
+      <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between h-16">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center">
+                <span className="text-white font-bold">CP</span>
+              </div>
+              <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                CP Solutions
+              </span>
+            </div>
+            
+            <button className="px-4 py-2 bg-blue-500 text-white rounded-xl hover:bg-blue-600">
+              Sign In
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <main className="container mx-auto px-4 py-8">
+        {/* Hero Section */}
+        <section className="text-center mb-12">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-orange-600 bg-clip-text text-transparent">
+            CP Solutions
+          </h1>
+          <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
+            Share, discover, and learn from competitive programming solutions
+          </p>
+        </section>
+
+        {/* Controls Section */}
+        <section className="mb-8">
+          <div className="flex flex-col md:flex-row gap-4 items-center justify-between bg-white rounded-2xl p-6 shadow-lg">
+            {/* Search Bar */}
+            <div className="relative flex-1 max-w-md">
+              <input
+                type="text"
+                placeholder="Search problems, solutions, or authors..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-4 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+              />
+            </div>
+
+            {/* View Mode Toggle */}
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => setViewMode('public')}
+                className={`px-4 py-2 rounded-xl transition-all ${
+                  viewMode === 'public'
+                    ? 'bg-blue-500 text-white shadow-lg'
+                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                }`}
+              >
+                Public
+              </button>
+              <button
+                onClick={() => setViewMode('private')}
+                className={`px-4 py-2 rounded-xl transition-all ${
+                  viewMode === 'private'
+                    ? 'bg-purple-500 text-white shadow-lg'
+                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                }`}
+              >
+                Private
+              </button>
+            </div>
+
+            {/* Create Solution Button */}
+            <button className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-xl hover:shadow-lg transition-all">
+              New Solution
+            </button>
+          </div>
+        </section>
+
+        {/* Test Buttons */}
+        <section className="mb-8">
+          <TestButtons />
+        </section>
+
+        {/* Status Display */}
+        <section className="bg-white rounded-2xl p-6 shadow-lg">
+          <h3 className="text-lg font-bold mb-4">Status</h3>
+          <div className="space-y-2">
+            <p><strong>View Mode:</strong> {viewMode}</p>
+            <p><strong>Search Query:</strong> {searchQuery || 'None'}</p>
+            <p><strong>JavaScript Working:</strong> ✅ Yes</p>
+          </div>
+        </section>
+      </main>
+    </div>
+  )
+}
