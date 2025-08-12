@@ -1,0 +1,12 @@
+# Ignore build files, OS files, and IDE files
+*.exe
+*.out
+*.class
+*.pyc
+__pycache__/
+.vscode/
+.idea/
+.DS_Store
+build/
+node_modules/
+*.log
