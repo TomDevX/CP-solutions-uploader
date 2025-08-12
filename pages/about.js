@@ -1,4 +1,4 @@
-export default function Home() {
+export default function About() {
   return (
     <main style={{
       display: "flex",
@@ -8,8 +8,8 @@ export default function Home() {
       alignItems: "center",
       fontFamily: "sans-serif"
     }}>
-      <h1>Welcome to CP-solutions-uploader 🚀</h1>
-      <p>Project deployed with Vercel.</p>
+      <h1>About</h1>
+      <p>This is the CP-solutions-uploader project, powered by Next.js and Vercel.</p>
     </main>
   );
 }
