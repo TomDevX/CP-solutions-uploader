@@ -13,8 +13,8 @@
 3. Create a Pull Request to submit your solution to the main repository
 
 ## 🌐 Website
-- [Home page](index.html)
-- [Upload solution](upload.html)
+- [Home page]([index.html](https://tomdevx.github.io/CP-solutions-uploader/))
+- [Upload page](https://tomdevx.github.io/CP-solutions-uploader/upload.html)
 
 ## 💡 Contribution & Contact
 - For any ideas or contributions, please create an Issue or Pull Request!
