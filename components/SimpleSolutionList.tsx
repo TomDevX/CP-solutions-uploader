@@ -26,9 +26,10 @@ interface Solution {
 interface SolutionListProps {
   viewMode: 'public' | 'private'
   searchQuery: string
+  refreshKey?: number
 }
 
-export default function SimpleSolutionList({ viewMode, searchQuery }: SolutionListProps) {
+export default function SimpleSolutionList({ viewMode, searchQuery, refreshKey }: SolutionListProps) {
   const [solutions, setSolutions] = useState<Record<string, Solution[]>>({})
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -64,7 +65,7 @@ export default function SimpleSolutionList({ viewMode, searchQuery }: SolutionLi
     }
 
     fetchSolutions()
-  }, [viewMode, searchQuery])
+  }, [viewMode, searchQuery, refreshKey])
 
   if (loading) {
     return (
@@ -177,7 +178,7 @@ export default function SimpleSolutionList({ viewMode, searchQuery }: SolutionLi
                 </div>
 
                 <div className="bg-gray-50 rounded-xl p-4">
-                  <pre className="whitespace-pre-wrap text-sm text-gray-800 font-mono">
+                  <pre className="whitespace-pre-wrap text-sm text-gray-900 font-mono">
                     {solution.contentMarkdown}
                   </pre>
                 </div>

@@ -210,7 +210,7 @@ export default function SolutionList({ viewMode, searchQuery }: SolutionListProp
                           </div>
                         </div>
 
-                        <div className="text-gray-700 text-sm mb-3 line-clamp-2">
+                        <div className="text-gray-900 text-sm mb-3 line-clamp-2">
                           {solution.contentMarkdown.substring(0, 200)}...
                         </div>
 
