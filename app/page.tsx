@@ -11,6 +11,12 @@ export default function HomePage() {
   const [searchQuery, setSearchQuery] = useState('')
   const [showAuthModal, setShowAuthModal] = useState(false)
   const [showCreateModal, setShowCreateModal] = useState(false)
+  const [refreshKey, setRefreshKey] = useState(0)
+
+  const handleSolutionCreated = () => {
+    setShowCreateModal(false)
+    setRefreshKey(prev => prev + 1) // Trigger refresh
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
@@ -106,6 +112,7 @@ export default function HomePage() {
           <SimpleSolutionList
             viewMode={viewMode}
             searchQuery={searchQuery}
+            refreshKey={refreshKey}
           />
         </section>
       </main>
@@ -117,7 +124,10 @@ export default function HomePage() {
 
       {/* Create Solution Modal */}
       {showCreateModal && (
-        <SimpleCreateSolutionModal onClose={() => setShowCreateModal(false)} />
+        <SimpleCreateSolutionModal 
+          onClose={() => setShowCreateModal(false)}
+          onSuccess={handleSolutionCreated}
+        />
       )}
     </div>
   )

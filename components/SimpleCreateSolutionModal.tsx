@@ -5,9 +5,10 @@ import { X } from 'lucide-react'
 
 interface SimpleCreateSolutionModalProps {
   onClose: () => void
+  onSuccess?: () => void
 }
 
-export default function SimpleCreateSolutionModal({ onClose }: SimpleCreateSolutionModalProps) {
+export default function SimpleCreateSolutionModal({ onClose, onSuccess }: SimpleCreateSolutionModalProps) {
   const [formData, setFormData] = useState({
     problemCode: '',
     title: '',
@@ -41,9 +42,13 @@ export default function SimpleCreateSolutionModal({ onClose }: SimpleCreateSolut
 
       if (response.ok) {
         alert('Solution created successfully!')
-        onClose()
-        // Refresh the page to show new solution
-        window.location.reload()
+        if (onSuccess) {
+          onSuccess() // Call the refresh callback
+        } else {
+          onClose()
+          // Fallback to page reload if no callback provided
+          window.location.reload()
+        }
       } else {
         const error = await response.json()
         throw new Error(error.error || 'Failed to create solution')
